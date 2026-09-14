@@ -9,7 +9,7 @@ Find nearby water stations at UC San Diego.
 - Finds stations near your location or a place you choose.
 - Shows station details and directions.
 - Displays nearby Street View images.
-- Accepts station reports with optional photos.
+- Accepts station reports through forms with optional photos.
 
 Reports appear in a private dashboard for the project owner.
 
