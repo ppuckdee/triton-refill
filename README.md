@@ -1,56 +1,77 @@
 # Triton Refill
 
-Find nearby water stations at UC San Diego.
+Find a nearby water station at UC San Diego.
 
 **[Launch Triton Refill](https://experience.arcgis.com/experience/e5cdd600df2146a3a2d6cdd035e79d67)** · [Explore the Python Notebook](Triton_Refill.ipynb)
 
-## What it does
+## What you can do
 
-- Finds stations near your location or a point you choose.
-- Shows station details and directions.
-- Opens nearby Street View imagery.
-- Accepts station reports with optional photos.
-- Keeps a private dashboard for reviewing reports.
+- Find water stations near you or a place you select.
+- Read station details and get directions.
+- Look around nearby areas using Street View.
+- Send a station report and add a photo.
 
-## How it was built
+Reports appear in a private dashboard for the project owner to review.
 
-Python cleans the station list and demonstrates a nearby search. ArcGIS Online stores the map data. Experience Builder runs the app. Survey123 collects reports, and ArcGIS Dashboards displays them. Google Maps Embed API supplies Street View.
+## How it works
 
-The app runs in ArcGIS. This repository contains the notebook, example files, and setup notes.
+| Tool | What it does |
+| --- | --- |
+| Python | Tidies the station list and tests a nearby search. |
+| ArcGIS Online | Stores the station information and map. |
+| Experience Builder | Creates the app people use. |
+| Survey123 | Collects station reports and photos. |
+| ArcGIS Dashboards | Shows the submitted reports. |
+| Google Maps | Provides Street View. |
 
-## Try the notebook
+The app runs in ArcGIS. This GitHub page holds the project’s code, files, and instructions.
+
+## Try the code
+
+The notebook contains code with explanations of each step.
 
 1. Download `Triton_Refill.ipynb`.
-2. Upload it to [Google Colab](https://colab.research.google.com/).
-3. Run the blocks from top to bottom.
+2. Open [Google Colab](https://colab.research.google.com/) and upload the notebook.
+3. Run each code block in order, starting at the top.
 
-The station list is already inside. No ArcGIS account or Google API key is needed to run the notebook. The final code block downloads the cleaned list. See [Colab's guide](https://research.google.com/colaboratory/faq.html).
+The station list is already included. You do not need an ArcGIS account or Google Maps key to run the notebook. The last block downloads the cleaned station list.
 
-For local Jupyter use, install `requirements.txt` and skip the last, Colab-only download block. Files are saved in the notebook's working folder.
+**Using Jupyter instead?** Install the tools listed in `requirements.txt` and skip the last download block.
 
-## Results
+## What the notebook found
 
-| Check | Result |
+| Item | Result |
 | --- | --- |
-| Saved station entries | 84 |
-| Missing descriptions | 31, labeled “No details provided” |
-| Exact repeats removed | 0 |
-| Search checks | 6 passed |
+| Entries in the station list | 84 |
+| Missing descriptions | 31 |
+| Repeated entries removed | 0 |
+| Search checks passed | 6 |
 
-![Example station distances](images/triton_refill_example.png)
+Missing descriptions were filled with **“No details provided.”**
 
-These are direct map distances from an example location. Walking paths, building access, and current station conditions require separate checks. Street View coverage also varies. The blank visit log contains no campus observations.
+![Distances to nearby stations](images/triton_refill_example.png)
 
-## Files
+Shorter bars mean closer stations.
 
-| File or folder | Purpose |
+## Things to know
+
+- Distances are measured directly between map points. Walking routes may be longer.
+- Current station conditions and building access have not been confirmed.
+- Street View is available only where Google has images.
+- The search checks test the code. The visit log is still blank.
+
+## Where to find things
+
+| File or folder | What is inside |
 | --- | --- |
-| `Triton_Refill.ipynb` | Original notebook with beginner explanations |
-| `data/` | Cleaned list, checks, example results, and blank visit log |
-| `images/` | Example distance chart |
-| `docs/app-setup.md` | ArcGIS setup notes |
-| `docs/github-upload-guide.md` | First GitHub upload steps |
+| `Triton_Refill.ipynb` | The code and explanations |
+| `data/` | Station list, check results, and blank visit log |
+| `images/` | The example chart |
+| `docs/app-setup.md` | Notes about building the app |
+| `docs/github-upload-guide.md` | Steps for uploading this project to GitHub |
 
-## Data credit
+## Where the station list came from
 
-Station locations come from [UCSD Hydration Locations](https://www.google.com/maps/d/viewer?mid=18OFCg3GFp6wl5mCwioSvU9fdGAA&usp=sharing), linked by [UCSD HDH Sustainability](https://hdhsustainability.ucsd.edu/). This project uses a saved map export; the source update date is unknown. Data belongs to its respective owners. The notebook includes further references.
+The locations came from [UCSD Hydration Locations](https://www.google.com/maps/d/viewer?mid=18OFCg3GFp6wl5mCwioSvU9fdGAA&usp=sharing), linked by [UCSD HDH Sustainability](https://hdhsustainability.ucsd.edu/).
+
+This project uses a saved copy. The original map’s last update date is unknown. Credit for the source data belongs to its owners. More sources are listed in the notebook.
