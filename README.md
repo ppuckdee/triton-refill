@@ -2,6 +2,10 @@
 
 Find nearby water stations at UC San Diego.
 
+## Author
+
+Created by Nicholas Puckdee.
+
 **[Open the App](https://experience.arcgis.com/experience/e5cdd600df2146a3a2d6cdd035e79d67)** · [View the Notebook](Triton_Refill.ipynb)
 
 ## What it does
