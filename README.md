@@ -53,7 +53,7 @@ Missing descriptions were replaced with “No details provided.”
 
 | Problem | Fix |
 | --- | --- |
-| Directions asked visitors to sign in. | Authorized the routing service for public use. |
+| Directions asked visitors to sign in ArcGIS account. | Authorized the routing service for public use. |
 | Street View showed the wrong location. | Fixed the location-number formatting and rebuilt the links. |
 | Missing Street View left an unclear or previous image. | Marked affected stations manually and added “Street View is not available at this location.” |
 
