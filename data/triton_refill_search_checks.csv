@@ -1,0 +1,7 @@
+Check,Result
+Closest entries come first,Passed
+Nearby results stay inside the search distance,Passed
+A one-meter example search returns no results,Passed
+A stored station point gives zero distance,Passed
+A faraway test point returns no nearby entries,Passed
+Both AP&M floor records are kept,Passed
