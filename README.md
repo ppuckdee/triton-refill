@@ -55,7 +55,7 @@ Missing descriptions were replaced with “No details provided.”
 
 Other checks confirmed that reports and photos could be submitted without signing in. Practice reports were hidden from the dashboard, and report review stayed private.
 
-The main lesson was to check the actual data and test what happens when information is missing.
+Main Lesson: Check the actual data and test what happens when information is missing.
 
 ## Limitations
 
