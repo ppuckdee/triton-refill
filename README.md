@@ -2,7 +2,7 @@
 
 Find nearby water stations at UC San Diego.
 
-**[Open the app](https://experience.arcgis.com/experience/e5cdd600df2146a3a2d6cdd035e79d67)** · [Read the notebook](Triton_Refill.ipynb)
+**[Launch Triton Refill](https://experience.arcgis.com/experience/e5cdd600df2146a3a2d6cdd035e79d67)** · [Explore the Python Notebook](Triton_Refill.ipynb)
 
 ## What it does
 
