@@ -4,11 +4,15 @@ Find nearby water stations at UC San Diego.
 
 **[Launch Triton Refill](https://experience.arcgis.com/experience/e5cdd600df2146a3a2d6cdd035e79d67)** · [Read the Code and Explanations](Triton_Refill.ipynb)
 
+![Triton Refill map with station details and a Street View availability message](images/triton_refill_app.png)
+
+*Experience Builder preview showing station details and the message for unavailable Street View.*
+
 ## What you can do
 
 - Find stations near your location or a place you choose.
 - Read station details and get directions.
-- View nearby areas in Street View.
+- Look around nearby areas using Street View.
 - Submit a station report with an optional photo.
 
 Reports go to a private dashboard for the project owner to review.
@@ -32,51 +36,42 @@ The app runs in ArcGIS. The notebook prepares the data and demonstrates a nearby
 2. Upload it to [Google Colab](https://colab.research.google.com/).
 3. Run the code blocks from top to bottom.
 
-The station list and step-by-step explanations are included. No ArcGIS account or Google Maps key is needed for the notebook. It saves tables as CSV files, and the final block downloads the cleaned station list.
+The station list and explanations are included. No ArcGIS account or Google Maps key is needed for the notebook. The final block downloads the cleaned station list.
 
 For Jupyter, install the tools in `requirements.txt` and skip the final download block. Files are saved in the notebook’s working folder.
 
-## Results
+## Notebook results
 
-- **84** station entries saved.
-- **31** missing descriptions filled with “No details provided.”
-- **0** exact repeats found.
-- **6** search checks passed.
+| Check | Result |
+| --- | --- |
+| Station entries saved | 84 |
+| Missing descriptions filled with “No details provided” | 31 |
+| Exact repeats found | 0 |
+| Search checks passed | 6 |
 
 ![Distances to nearby stations](images/triton_refill_example.png)
 
-Shorter bars mean closer stations. This example uses straight-line distances.
+Shorter bars mean closer stations. This example uses straight-line distances, not walking routes.
 
-## Problems, fixes, and checks
+## Main problems solved
 
-| What we noticed | What we did or learned |
+| Problem | Fix |
 | --- | --- |
-| Some descriptions were missing. | Added “No details provided” and kept the stations on the map. |
-| Nearby distance could be mistaken for walking distance. | Labeled notebook distances as straight-line measurements and included Directions in the app. |
-| Directions asked visitors to sign in. | Connected Route_World and authorized public use under Subscriber contents. Removed an extra unavailable search source. |
-| The route-service page showed a 403 error. | Tested Directions in the app. The blocked information page did not mean route requests were unavailable. |
-| Two reports appeared in the total, but the status counters showed zero. | Both reports were marked “Other,” so the counts were correct. |
-| Practice reports appeared in the dashboard. | Filtered them out so they would not look like real station observations. |
-| Reporting needed to be public while review stayed private. | Kept the survey and submission view public, with report data and the review dashboard private. Tested submission without signing in. |
-| Photos needed to reach the reviewer. | Submitted a test photo and confirmed it appeared in the dashboard. |
-| Different stations showed the same distant Street View. | Increased latitude and longitude—the location numbers—to six decimal places and removed number separators. |
-| Street View showed an unfinished link before selection. | Added “Select a station to view Street View.” |
-| The Google key included extra URL text. | Used only the key itself and let the code add the rest of the address. |
-| A new formula caused black Street View screens. | Changed the Arcade format from `"0.000000"` to `"#.000000"` because the first format removed leading digits. Rebuilt the links from the original locations. |
-| A station without usable Street View showed an unclear or previous view. | Left its saved link blank and displayed “Street View is not available at this location.” Confirmed this for Rogers Market. |
+| Directions asked visitors to sign in. | Connected the routing service and authorized its use in the public app. |
+| Street View showed the wrong place. | Kept complete location numbers with six decimal places and repaired incorrectly built links. |
+| Stations without usable Street View showed an unclear or previous view. | Left their saved links blank so the app displays “Street View is not available at this location.” These stations are marked manually. |
 
-The main lesson was to check the saved information and generated links before changing the app. A calculation can run without errors and still produce the wrong location.
+The main lesson: check the actual information sent to each tool and test what happens when information is missing.
 
-## Limits and upkeep
+[Read the full issue history, fixes, and testing steps](docs/troubleshooting.md).
 
+## Limits
+
+- Station conditions and building access have not been confirmed. The campus-visit log is blank.
 - Walking routes may be longer than the notebook’s straight-line distances.
-- Station conditions and building access have not been confirmed. The visit log is blank.
 - Street View searches within 50 meters and may show a nearby road instead of the exact water station.
-- Missing Street View is marked **manually**. Clear that station’s `streetview_url` field—the “Street View link” column—to show the unavailable message. Keep the station on the map and preserve blank links during later repairs.
-- The blank-link message does not automatically detect every Google loading error.
+- Missing Street View is marked manually. The message does not automatically detect every Google loading error.
 - Directions can use the organization’s ArcGIS credits.
-
-After changes, save and publish the app. Test a station with working Street View, an unavailable station, and another working station to confirm the display changes correctly.
 
 ## Project files
 
@@ -84,10 +79,11 @@ After changes, save and publish the app. Test a station with working Street View
 | --- | --- |
 | `Triton_Refill.ipynb` | Code and beginner explanations |
 | `requirements.txt` | Python tools needed for local use |
-| `data/` | Station list, checks, example results, and blank visit log |
-| `images/` | Example chart |
-| `docs/app-setup.md` | App setup notes |
-| `docs/github-upload-guide.md` | GitHub upload instructions |
+| `data/` | Station list, check results, and blank visit log |
+| `images/` | App preview and example chart |
+| [App setup](docs/app-setup.md) | Notes about building the app |
+| [Troubleshooting](docs/troubleshooting.md) | All 13 issues, fixes, and upkeep steps |
+| [GitHub upload guide](docs/github-upload-guide.md) | Upload instructions |
 
 ## Data source
 
